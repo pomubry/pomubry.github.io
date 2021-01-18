@@ -41,3 +41,11 @@ header {
     width: 80%;
   }
 }
+
+@media (max-width: 1080px) {
+  header {
+    ul {
+      display: none;
+    }
+  }
+}

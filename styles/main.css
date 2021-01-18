@@ -95,6 +95,12 @@ header span i {
   width: 80%;
 }
 
+@media (max-width: 1080px) {
+  header ul {
+    display: none;
+  }
+}
+
 .main {
   line-height: 3rem;
   padding-top: 30px;
@@ -116,6 +122,12 @@ header span i {
 .main p {
   font-size: 1.1rem;
   margin: 20px 0;
+}
+
+@media (max-width: 1080px) {
+  .main div {
+    width: auto;
+  }
 }
 
 #projects h2 {
@@ -160,10 +172,14 @@ header span i {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  min-width: 300px;
 }
 
 .img-container img {
+  max-width: 100%;
+  height: auto;
   border-radius: 15px;
+  width: auto;
 }
 
 .project-details {
@@ -224,6 +240,23 @@ header span i {
     width: 400px;
     margin: 0 auto;
     padding-left: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .project-details {
+    padding-left: 0;
+    width: auto;
+  }
+  .project-details h3,
+  .project-details p {
+    margin-bottom: 5vh;
+  }
+  #projects .project:nth-child(odd) .img-container {
+    padding-left: 0;
+  }
+  #projects .project:nth-child(even) .project-details {
+    padding-left: 0;
   }
 }
 
@@ -377,5 +410,24 @@ header span i {
 
 .contacts-content .contact-info i {
   margin-right: 5px;
+}
+
+@media (max-width: 500px) {
+  .contacts-content {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .contacts-content .contact-info {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  body {
+    padding: 30px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

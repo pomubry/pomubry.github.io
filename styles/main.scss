@@ -45,3 +45,9 @@ section {
 @import 'Projects';
 @import 'Technology';
 @import 'Contacts';
+
+@media (max-width: 900px) {
+  body {
+    padding: 30px;
+  }
+}

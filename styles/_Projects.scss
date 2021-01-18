@@ -31,9 +31,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: 300px;
 
   img {
+    max-width: 100%;
+    height: auto;
     border-radius: 15px;
+    width: auto;
   }
 }
 
@@ -84,5 +88,33 @@
     width: 400px;
     margin: 0 auto;
     padding-left: 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .project-details {
+    padding-left: 0;
+    width: auto;
+
+    h3,
+    p {
+      margin-bottom: 5vh;
+    }
+  }
+
+  #projects {
+    .project {
+      &:nth-child(odd) {
+        .img-container {
+          padding-left: 0;
+        }
+      }
+
+      &:nth-child(even) {
+        .project-details {
+          padding-left: 0;
+        }
+      }
+    }
   }
 }
