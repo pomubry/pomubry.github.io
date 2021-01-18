@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 2px;
+}
+
+body {
+  background-color: rgb(18, 18, 18);
+  padding: 30px 200px;
+}
+
+section {
+  margin-bottom: 100px;
+
+  a:not(.img-link):not(.quotable) {
+    border: 3px solid white;
+    border-radius: 20px;
+    display: inline;
+    padding: 10px 20px;
+    text-decoration: none;
+    background: linear-gradient(to left, transparent 50%, white 50%) right;
+    background-size: 200%;
+    transition: 0.25s ease;
+
+    i {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      background-position: left;
+      color: black;
+
+      i {
+        color: black;
+      }
+    }
+  }
+}
+
+@import 'Header';
+@import 'Section';
+@import 'Projects';
+@import 'Technology';
+@import 'Contacts';

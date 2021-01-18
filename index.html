@@ -1,12 +1,287 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Pomubry</h1>
-    <p>Added a paragraph</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <title>Bryan Taduran</title>
+  </head>
+  <body>
+    <header>
+      <h2>BT</h2>
+      <nav>
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#tech-anchor">Technology</a></li>
+          <li><a href="#contacts">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="main" data-aos="fade-up">
+      <div>
+        <h2>I'm Bryan Taduran</h2>
+        <h2>See a glimpse of all the projects that I have done so far</h2>
+        <p>
+          Down here is where you can also see some of the technologies that I
+          have used
+        </p>
+      </div>
+      <a href="https://github.com/pomubry"
+        ><i class="fab fa-github"></i>Github</a
+      >
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project" data-aos="fade-up">
+        <div class="img-container">
+          <a href="/images/cafe-og.PNG" class="img-link" target="_blank">
+            <img src="/images/cafe.PNG" alt="circle animation" />
+          </a>
+        </div>
+        <div class="project-details">
+          <h3>Circle Animation</h3>
+          <p>
+            A full stack application wherein you hit the notes that are moving
+            in accordance to the rhythm of the song.
+          </p>
+          <p>
+            It uses for the frontend, express for the backend, as well as
+            mongodb for its database.
+          </p>
+          <div class="prj-links">
+            <a href="https://github.com/pomubry/circle-animation/"
+              ><i class="fab fa-github"></i>Github</a
+            >
+            <a href="https://circle-animation-fe.netlify.app/"
+              ><i class="fas fa-external-link-alt"></i>Go to the app</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="project" data-aos="fade-up">
+        <div class="img-container">
+          <a href="/images/pomodoro-og.PNG" class="img-link" target="_blank">
+            <img src="/images/pomodoro.PNG" alt="pomodoro clock" />
+          </a>
+        </div>
+        <div class="project-details">
+          <h3>Pomodoro Clock</h3>
+          <p>A pomodoro clock to keep track of your break and session times.</p>
+          <p>
+            It would also automatically restart at each iteration so you could
+            continue with your work.
+          </p>
+          <div class="prj-links">
+            <a href="https://github.com/pomubry/pomodoro-clock/"
+              ><i class="fab fa-github"></i>Github</a
+            >
+            <a href="https://pomubry.github.io/pomodoro-clock/"
+              ><i class="fas fa-external-link-alt"></i>Go to the app</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="project" data-aos="fade-up">
+        <div class="img-container">
+          <a href="/images/jscalc-og.PNG" class="img-link" target="_blank">
+            <img src="/images/jscalc.PNG" alt="javascript calculator" />
+          </a>
+        </div>
+        <div class="project-details">
+          <h3>Javascript Calculator</h3>
+          <p>
+            A simple javascript calculator. It uses math.js library to parse the
+            expressions and to give proper error messages.
+          </p>
+          <p>
+            Aside from the four basic operations, it would also prevent the user
+            from doing any wrong inputs.
+          </p>
+          <div class="prj-links">
+            <a href="https://pomubry.github.io/jscalculator/"
+              ><i class="fab fa-github"></i>Github</a
+            >
+            <a href="https://github.com/pomubry/jscalculator/"
+              ><i class="fas fa-external-link-alt"></i>Go to the app</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="project" data-aos="fade-up">
+        <div class="img-container">
+          <a
+            href="/images/drum-machine-og.PNG"
+            class="img-link"
+            target="_blank"
+          >
+            <img src="/images/drum-machine.PNG" alt="drum machine" />
+          </a>
+        </div>
+        <div class="project-details">
+          <h3>Drum Machine</h3>
+          <p>
+            A drum machine with 9 different inputs you can choose from. You
+            could also see the name of each input upon activating it.
+          </p>
+          <p>
+            Feel free to change the volume if you ever find the sound to be too
+            loud.
+          </p>
+          <div class="prj-links">
+            <a href="https://pomubry.github.io/drum-machine/"
+              ><i class="fab fa-github"></i>Github</a
+            >
+            <a href="https://github.com/pomubry/drum-machine/"
+              ><i class="fas fa-external-link-alt"></i>Go to the app</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="project" data-aos="fade-up">
+        <div class="img-container">
+          <a href="/images/mdpreviewer-og.PNG" class="img-link" target="_blank">
+            <img src="/images/mdpreviewer.PNG" alt="markdown previewer" />
+          </a>
+        </div>
+        <div class="project-details">
+          <h3>Markdown Previewer</h3>
+          <p>
+            If you are looking for a place to test your markdown skills, then
+            try to put your code in here. You could also hide the editor if you
+            want when reviewing your output.
+          </p>
+          <p>It uses marked.js to parse and compile your markdown input.</p>
+          <div class="prj-links">
+            <a href="https://pomubry.github.io/mdpreviewer/"
+              ><i class="fab fa-github"></i>Github</a
+            >
+            <a href="https://github.com/pomubry/mdpreviewer/"
+              ><i class="fas fa-external-link-alt"></i>Go to the app</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="project" data-aos="fade-up">
+        <div class="img-container">
+          <a
+            href="/images/rdm-quote-gen-og.PNG"
+            class="img-link"
+            target="_blank"
+          >
+            <img src="/images/rdm-quote-gen.PNG" alt="random quote generator" />
+          </a>
+        </div>
+        <div class="project-details">
+          <h3>Random Quote Generator</h3>
+          <p>
+            Look for a random quote from different individuals and tweet the
+            quote if you wish so.
+          </p>
+          <p>
+            It fetches data from
+            <a class="quotable" href="https://github.com/lukePeavey/quotable"
+              >this repository.</a
+            >
+          </p>
+          <div class="prj-links">
+            <a href="https://pomubry.github.io/random-quote-generator/"
+              ><i class="fab fa-github"></i>Github</a
+            >
+            <a href="https://github.com/pomubry/random-quote-generator/"
+              ><i class="fas fa-external-link-alt"></i>Go to the app</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <span id="tech-anchor"></span>
+    <section id="tech" data-aos="fade-up">
+      <h2>These are the technologies that I have used for my projects</h2>
+      <hr />
+      <h3>
+        I mainly used React for the frontend, Node and Express.js for the
+        backend, and MongoDB Atlas for the database.
+      </h3>
+      <ul>
+        <li class="tech-fa">
+          <span class="tooltiptext">HTML5</span>
+          <span><i class="fab fa-html5"></i></span>
+        </li>
+        <li class="tech-fa">
+          <span class="tooltiptext">CSS3</span>
+          <span><i class="fab fa-css3-alt"></i></span>
+        </li>
+        <li class="tech-fa">
+          <span class="tooltiptext">Javascript</span>
+          <span><i class="fab fa-js"></i></span>
+        </li>
+        <li class="tech-fa">
+          <span class="tooltiptext">React.js</span>
+          <span><i class="fab fa-react"></i></span>
+        </li>
+        <li class="tech-fa">
+          <span class="tooltiptext">Node.js</span>
+          <span><i class="fab fa-node"></i></span>
+        </li>
+        <li class="tech-fa">
+          <span class="tooltiptext">SASS</span>
+          <span><i class="fab fa-sass"></i></span>
+        </li>
+        <li class="tech-fa">
+          <span class="tooltiptext">MongoDB Atlas</span>
+          <span><i class="fas fa-database"></i></span>
+        </li>
+      </ul>
+    </section>
+
+    <section id="contacts" data-aos="fade-up">
+      <h2>Contacts</h2>
+      <p>If you have any queries, feel free to use any of my contacts below.</p>
+      <div class="contacts-content">
+        <h2>BT</h2>
+        <div class="contact-info">
+          <h3>Bryan Taduran</h3>
+          <p><i class="far fa-envelope"></i>btaduran30@gmail.com</p>
+          <p><i class="fas fa-phone-square"></i>+639494926344</p>
+        </div>
+      </div>
+      <div class="contact-links">
+        <a href="https://github.com/pomubry"
+          ><i class="fab fa-github"></i>Github</a
+        >
+      </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        delay: 100,
+      });
+
+      const tooltip = document.querySelectorAll('.tech-fa');
+      [...tooltip].forEach((li) => {
+        li.addEventListener('mouseenter', () => {
+          li.firstElementChild.style.opacity = 1;
+        });
+        li.addEventListener('mouseleave', () => {
+          li.firstElementChild.style.opacity = 0;
+        });
+      });
+    </script>
+  </body>
 </html>
