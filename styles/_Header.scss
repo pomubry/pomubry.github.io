@@ -2,8 +2,12 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 10px;
-  padding-bottom: 60px;
+  margin: 0 auto;
+  padding: 20px;
+
+  h2 {
+    font-size: 3rem;
+  }
 
   ul {
     display: flex;
@@ -11,7 +15,6 @@ header {
 
   li {
     list-style: none;
-    margin: 0 20px;
     padding: 10px 20px;
 
     &:nth-child(3) {
@@ -23,26 +26,9 @@ header {
       text-decoration: none;
     }
   }
-
-  span {
-    display: inline-block;
-    border: 2px solid white;
-    transform: rotate(45deg);
-    padding: 10px;
-
-    i {
-      transform: rotate(-45deg);
-    }
-  }
 }
 
-.main {
-  p {
-    width: 80%;
-  }
-}
-
-@media (max-width: 1080px) {
+@media (max-width: 620px) {
   header {
     ul {
       display: none;

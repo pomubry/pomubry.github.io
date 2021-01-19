@@ -10,7 +10,6 @@
 
 body {
   background-color: #121212;
-  padding: 30px 200px;
 }
 
 section {
@@ -20,7 +19,9 @@ section {
 section a:not(.img-link):not(.quotable) {
   border: 3px solid white;
   border-radius: 20px;
-  display: inline;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
   padding: 10px 20px;
   text-decoration: none;
   background: -webkit-gradient(linear, right top, left top, color-stop(50%, transparent), color-stop(50%, white)) right;
@@ -43,6 +44,22 @@ section a:not(.img-link):not(.quotable):hover i {
   color: black;
 }
 
+.container {
+  max-width: 1000px;
+}
+
+@media (max-width: 1020px) {
+  .container {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 820px) {
+  .container {
+    max-width: 600px;
+  }
+}
+
 header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -53,8 +70,12 @@ header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding-top: 10px;
-  padding-bottom: 60px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header h2 {
+  font-size: 3rem;
 }
 
 header ul {
@@ -65,7 +86,6 @@ header ul {
 
 header li {
   list-style: none;
-  margin: 0 20px;
   padding: 10px 20px;
 }
 
@@ -78,45 +98,30 @@ header li a {
   text-decoration: none;
 }
 
-header span {
-  display: inline-block;
-  border: 2px solid white;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  padding: 10px;
-}
-
-header span i {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-
-.main p {
-  width: 80%;
-}
-
-@media (max-width: 1080px) {
+@media (max-width: 620px) {
   header ul {
     display: none;
   }
 }
 
 .main {
-  line-height: 3rem;
-  padding-top: 30px;
-  min-height: 60vh;
+  min-height: 80vh;
+  margin: 50px auto;
+  padding-left: 20px;
 }
 
 .main div {
+  line-height: 2;
   width: 70%;
 }
 
 .main h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
 }
 
 .main h2 {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
+  margin: 30px 0;
 }
 
 .main p {
@@ -124,145 +129,61 @@ header span i {
   margin: 20px 0;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 840px) {
   .main div {
-    width: auto;
+    line-height: 1.5;
   }
 }
 
+#projects {
+  margin: 0 auto;
+}
+
 #projects h2 {
-  margin: 50px auto;
+  padding-left: 20px;
 }
 
 #projects .project {
+  margin: 20px 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  min-height: 80vh;
-  margin-top: 10px;
-}
-
-#projects .project:nth-child(odd) .img-container {
-  -webkit-box-ordinal-group: 3;
-      -ms-flex-order: 2;
-          order: 2;
-  padding-left: 30px;
-}
-
-#projects .project:nth-child(odd) .project-details {
-  -webkit-box-ordinal-group: 2;
-      -ms-flex-order: 1;
-          order: 1;
-}
-
-#projects .project:nth-child(even) .project-details {
-  padding-left: 30px;
-}
-
-.img-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  min-width: 300px;
+  min-height: 80vh;
+  overflow-x: hidden;
 }
 
-.img-container img {
-  max-width: 100%;
+#projects .project .img-container {
+  min-width: 400px;
+}
+
+#projects .project .img-container img {
+  width: 100%;
   height: auto;
-  border-radius: 15px;
-  width: auto;
 }
 
-.project-details {
-  width: 400px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+#projects .project .project-details {
+  padding: 50px;
 }
 
-.project-details h3,
-.project-details p {
-  margin-bottom: 10vh;
+#projects .project .project-details p {
+  margin: 20px 0;
 }
 
-.project-details .prj-links {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.quotable {
-  border: none;
-  border-radius: 0px;
-  display: inline;
-  padding: 0;
-  text-decoration: none;
-  border-bottom: 1px dotted white;
-}
-
-@media (max-width: 1080px) {
-  #projects .project {
-    margin-top: 50px;
+@media (max-width: 820px) {
+  .project {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  #projects .project:nth-child(odd) .img-container {
-    -webkit-box-ordinal-group: 2;
-        -ms-flex-order: 1;
-            order: 1;
-  }
-  #projects .project:nth-child(odd) .project-details {
-    -webkit-box-ordinal-group: 3;
-        -ms-flex-order: 2;
-            order: 2;
-  }
-  .project-details {
-    width: 400px;
-    margin: 0 auto;
-    padding-left: 30px;
-  }
-}
-
-@media (max-width: 500px) {
-  .project-details {
-    padding-left: 0;
-    width: auto;
-  }
-  .project-details h3,
-  .project-details p {
-    margin-bottom: 5vh;
-  }
-  #projects .project:nth-child(odd) .img-container {
-    padding-left: 0;
-  }
-  #projects .project:nth-child(even) .project-details {
-    padding-left: 0;
-  }
 }
 
 #tech {
   text-align: center;
-  height: 70vh;
+  min-height: 70vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -273,6 +194,8 @@ header span i {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 #tech h3 {
@@ -313,6 +236,8 @@ header span i {
           align-items: center;
   position: relative;
   list-style: none;
+  margin: 10px;
+  padding: 10px;
 }
 
 #tech ul li span:nth-child(2) {
@@ -330,7 +255,6 @@ header span i {
           align-items: center;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
-  margin: 10px;
   background: -webkit-gradient(linear, right top, left top, color-stop(50%, transparent), color-stop(50%, white)) right;
   background: linear-gradient(to left, transparent 50%, white 50%) right;
   background-size: 200%;
@@ -366,7 +290,9 @@ header span i {
 }
 
 #contacts {
-  height: 80vh;
+  min-height: 80vh;
+  padding: 20px;
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -422,12 +348,6 @@ header span i {
   .contacts-content .contact-info {
     margin-left: 0;
     margin-top: 10px;
-  }
-}
-
-@media (max-width: 900px) {
-  body {
-    padding: 30px;
   }
 }
 /*# sourceMappingURL=main.css.map */
