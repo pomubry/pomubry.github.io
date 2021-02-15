@@ -166,6 +166,7 @@ header li a {
 
 #projects .project .project-details {
   padding: 50px;
+  overflow: hidden;
 }
 
 #projects .project .project-details p {
