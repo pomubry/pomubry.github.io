@@ -1,13 +1,13 @@
 import { Flex } from "@chakra-ui/react";
 import BtnMenu from "./BtnMenu";
 import BurgerMenu from "./BurgerMenu";
-import LetterIcon from "./LetterIcon";
+import Logo from "./Logo";
 import ThemeToggle from "./ThemeToggle";
 
 const NavLinks = () => {
   return (
-    <Flex alignItems="center" p={5} gap={2}>
-      <LetterIcon />
+    <Flex gap={2}>
+      <Logo />
       <BtnMenu />
       <BurgerMenu />
       <ThemeToggle />

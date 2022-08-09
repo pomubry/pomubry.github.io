@@ -1,7 +1,9 @@
-import { Container } from "@chakra-ui/react";
+import { Container, Heading } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import NavLinks from "../components/Nav/NavLinks";
+import Header from "../components/Header";
+import NavLinks from "../components/Nav/";
+import Projects from "../components/Projects";
 
 const Home: NextPage = () => {
   return (
@@ -10,7 +12,7 @@ const Home: NextPage = () => {
         <title>Bryan Taduran</title>
         <meta
           name="description"
-          content="A simple portfolio showing my projects and abilities."
+          content="A simple portfolio for my projects and stuff."
         />
         <meta name="author" content="Bryan Taduran" />
         <meta
@@ -18,8 +20,14 @@ const Home: NextPage = () => {
           content="Bryan Taduran, Portfolio, Projects, Contacts, Technologies, React"
         />
       </Head>
-      <Container maxW="5xl">
+
+      <Container maxW="5xl" py={5}>
         <NavLinks />
+        <Header />
+        <Heading id="projects" mt={20} mb={10}>
+          Projects
+        </Heading>
+        <Projects />
       </Container>
     </>
   );

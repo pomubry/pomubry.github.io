@@ -1,15 +1,15 @@
-import { Button, Flex, Link } from "@chakra-ui/react";
+import { Button, Flex } from "@chakra-ui/react";
 
 const BtnMenu = () => {
   return (
     <Flex display={{ base: "none", md: "flex" }}>
-      <Button as={Link} variant="ghost" href="#projects">
+      <Button as="a" variant="ghost" href="#projects">
         Projects
       </Button>
-      <Button as={Link} variant="ghost" href="#techonologies">
+      <Button as="a" variant="ghost" href="#techonologies">
         Technologies
       </Button>
-      <Button as={Link} variant="ghost" href="#contact">
+      <Button as="a" variant="ghost" href="#contact">
         Contact
       </Button>
     </Flex>

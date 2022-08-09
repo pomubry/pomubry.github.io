@@ -1,7 +1,6 @@
 import {
   Icon,
   IconButton,
-  Link,
   Menu,
   MenuButton,
   MenuItem,
@@ -9,36 +8,24 @@ import {
 } from "@chakra-ui/react";
 import { MdMenu } from "react-icons/md";
 
-type MyLinkProps = {
-  href: string;
-};
-
-const MyLink = ({ href }: MyLinkProps) => {
-  return (
-    <Link width="100%" href={`#${href}`}>
-      {href[0].toUpperCase() + href.slice(1)}
-    </Link>
-  );
-};
-
 const BurgerMenu = () => {
   return (
-    <Menu>
+    <Menu autoSelect={false}>
       <MenuButton
         aria-label="Menu toggle button"
         as={IconButton}
         icon={<Icon as={MdMenu} />}
         display={{ base: "flex", md: "none" }}
       />
-      <MenuList>
-        <MenuItem>
-          <MyLink href="projects" />
+      <MenuList minW={0}>
+        <MenuItem as="a" href="#projects">
+          Projects
         </MenuItem>
-        <MenuItem>
-          <MyLink href="technologies" />
+        <MenuItem as="a" href="#technologies">
+          Technologies
         </MenuItem>
-        <MenuItem>
-          <MyLink href="contact" />
+        <MenuItem as="a" href="#contact">
+          Contact
         </MenuItem>
       </MenuList>
     </Menu>
