@@ -4,6 +4,7 @@ import Head from "next/head";
 import Header from "../components/Header";
 import NavLinks from "../components/Nav/";
 import Projects from "../components/Projects";
+import Technologies from "../components/Technologies";
 
 const Home: NextPage = () => {
   return (
@@ -24,10 +25,16 @@ const Home: NextPage = () => {
       <Container maxW="5xl" py={5}>
         <NavLinks />
         <Header />
+
         <Heading id="projects" mt={20} mb={10}>
           Projects
         </Heading>
         <Projects />
+
+        <Heading id="technologies" mt={20} mb={10}>
+          Technologies
+        </Heading>
+        <Technologies />
       </Container>
     </>
   );

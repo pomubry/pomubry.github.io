@@ -27,7 +27,7 @@ const Project: React.FC<ProjectProps> = ({
   site,
   index,
 }) => {
-  const bgColor = useColorModeValue("gray.200", "gray.900");
+  const bgColor = useColorModeValue("gray.100", "gray.900");
   const isEven = index % 2 === 0;
   return (
     <Grid
@@ -36,8 +36,6 @@ const Project: React.FC<ProjectProps> = ({
       gap={5}
       my={10}
       p={8}
-      overflow="hidden"
-      borderColor="purple.500"
       borderRadius="xl"
       bgColor={bgColor}
       boxShadow="dark-lg"
