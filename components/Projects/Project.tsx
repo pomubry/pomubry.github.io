@@ -40,10 +40,11 @@ const Project: React.FC<ProjectProps> = ({
       borderColor="purple.500"
       borderRadius="xl"
       bgColor={bgColor}
+      boxShadow="dark-lg"
     >
       {/* Image */}
       <GridItem justifySelf="center" order={{ base: 1, md: isEven ? 1 : 2 }}>
-        <Image src={img} alt={title} />
+        <Image src={img} alt={title} borderRadius="xl" />
       </GridItem>
 
       {/* Description */}

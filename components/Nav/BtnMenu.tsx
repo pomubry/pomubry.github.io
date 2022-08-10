@@ -6,7 +6,7 @@ const BtnMenu = () => {
       <Button as="a" variant="ghost" href="#projects">
         Projects
       </Button>
-      <Button as="a" variant="ghost" href="#techonologies">
+      <Button as="a" variant="ghost" href="#technologies">
         Technologies
       </Button>
       <Button as="a" variant="ghost" href="#contact">
