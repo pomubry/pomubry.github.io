@@ -4,6 +4,9 @@ import Button from "./components/button";
 import Link from "./components/link";
 const overrides = {
   config,
+  colors: {
+    white: "#CBD5E0",
+  },
   components: {
     Button,
     Link,

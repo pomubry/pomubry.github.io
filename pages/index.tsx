@@ -1,10 +1,12 @@
 import { Container, Heading } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import Header from "../components/Header";
 import NavLinks from "../components/Nav/";
+import Header from "../components/Header";
 import Projects from "../components/Projects";
 import Technologies from "../components/Technologies";
+import Form from "../components/Contact";
+import Fab from "../components/Fab";
 
 const Home: NextPage = () => {
   return (
@@ -35,6 +37,13 @@ const Home: NextPage = () => {
           Technologies
         </Heading>
         <Technologies />
+
+        <Heading id="contact" mt={20} mb={10}>
+          Contact
+        </Heading>
+        <Form />
+
+        <Fab />
       </Container>
     </>
   );

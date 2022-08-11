@@ -8,8 +8,8 @@ interface Props {
 
 const IconContainer = ({ label, icon }: Props) => {
   return (
-    <Tag size="lg" variant="subtle" colorScheme="purple" p={3}>
-      <TagLeftIcon boxSize={7} as={icon} />
+    <Tag size="md" variant="subtle" colorScheme="purple" p={3}>
+      <TagLeftIcon boxSize={{ base: 4, sm: 7 }} as={icon} />
       <TagLabel>{label}</TagLabel>
     </Tag>
   );

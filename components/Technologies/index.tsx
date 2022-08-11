@@ -11,13 +11,13 @@ const Technologies = () => {
     >
       <Box>
         <Heading as="h3" textAlign="center">
-          These are the technologies that I have used for my projects
+          These are what I have used so far...
         </Heading>
         <Divider my={5} borderRadius="full" border="5px solid yellow" />
         <Text fontWeight={600} textAlign="center">
           I&apos;m mostly familiar with React for the frontend, while I know
-          just enough to make a functional api with Node and Express.js for the
-          backend, and MongoDB for the database.
+          just enough to make a functional API with Express.js for the backend,
+          and MongoDB for the database.
         </Text>
       </Box>
       <TagContainer />
