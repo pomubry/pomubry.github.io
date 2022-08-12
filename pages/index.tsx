@@ -1,4 +1,4 @@
-import { Container, Heading } from "@chakra-ui/react";
+import { Button, Container, Heading, Icon } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import NavLinks from "../components/Nav/";
@@ -7,6 +7,7 @@ import Projects from "../components/Projects";
 import Technologies from "../components/Technologies";
 import Form from "../components/Contact";
 import Fab from "../components/Fab";
+import { BsGithub } from "react-icons/bs";
 
 const Home: NextPage = () => {
   return (
@@ -38,10 +39,20 @@ const Home: NextPage = () => {
         </Heading>
         <Technologies />
 
-        <Heading id="contact" mt={20} mb={10}>
+        <Heading id="contact" mt={20}>
           Contact
         </Heading>
         <Form />
+
+        <Button
+          as="a"
+          href="https://github.com/pomubry"
+          target="_blank"
+          rel="noopener"
+          rightIcon={<Icon as={BsGithub} />}
+        >
+          Github
+        </Button>
 
         <Fab />
       </Container>
