@@ -6,6 +6,8 @@ const ContactLogo = () => {
       as="h5"
       userSelect="none"
       fontSize="9xl"
+      flex={1}
+      textAlign="right"
       display={{ base: "none", md: "block" }}
     >
       BT

@@ -6,7 +6,7 @@ import ThemeToggle from "./ThemeToggle";
 
 const NavLinks = () => {
   return (
-    <Flex gap={2}>
+    <Flex gap={2} my={5}>
       <Logo />
       <BtnMenu />
       <BurgerMenu />

@@ -1,43 +1,43 @@
 [
   {
     "title": "Circle Animation",
-    "img": "/images/cafe.PNG",
-    "desc": "A full stack application wherein you hit the notes that are moving in accordance to the rhythm of the song.\n\nIt uses React for the frontend, Node and Express for the backend, as well as MongoDB for its database.",
+    "img": "/images/cafe-og.PNG",
+    "desc": "A full stack application where you hit the notes that are moving along the rhythm of the song.\n\nIt uses React for the frontend, Node and Express for the backend, as well as MongoDB for its database.",
     "github": "https://github.com/pomubry/circle-animation/",
     "site": "https://circle-animation-fe.netlify.app/"
   },
   {
     "title": "NextAni Database",
-    "img": "/images/nextani.png",
+    "img": "/images/nextani-og.png",
     "desc": "A simple anime database created using Next.js.\n\nIt fetches data from Anilist.co's API.",
     "github": "https://github.com/pomubry/nextani/",
     "site": "https://nextani.vercel.app/"
   },
   {
     "title": "Video Trimmer",
-    "img": "/images/video-trimmer.PNG",
+    "img": "/images/video-trimmer-og.PNG",
     "desc": "A script-based video trimmer using FFmpeg, mpv, and Node.js.\n\nTrim one or more segments from a video that you like and merge each one at the end. All you need to do is to save the filename and all the timestamps which you would like to be trimmed inside a text file and let the program handle the rest.",
     "github": "https://github.com/pomubry/video-trimmer/",
     "site": null
   },
   {
     "title": "Javascript Calculator",
-    "img": "/images/jscalc.PNG",
+    "img": "/images/jscalc-og.PNG",
     "desc": "A simple javascript calculator. It uses math.js library to parse the expressions and to give proper error messages.\n\nAside from the four basic operations, it would also prevent the user from doing any wrong inputs.",
     "github": "https://github.com/pomubry/jscalculator/",
     "site": "https://pomubry.github.io/jscalculator/"
   },
   {
     "title": "Markdown Previewer",
-    "img": "/images/mdpreviewer.PNG",
-    "desc": "If you are looking for a place to test your markdown skills, then try to put your code in here. You could also hide the editor if you want when reviewing your output.\n\nIt uses marked.js to parse and compile your markdown input.",
+    "img": "/images/mdpreviewer-og.PNG",
+    "desc": "If you are looking for a place to test your markdown skills, then try to put your code in here. Hide the editor if needed when reviewing your output.\n\nIt uses marked.js to parse your markdown input.",
     "github": "https://github.com/pomubry/mdpreviewer/",
     "site": "https://pomubry.github.io/mdpreviewer/"
   },
   {
     "title": "Drum Machine",
-    "img": "/images/drum-machine.PNG",
-    "desc": "A drum machine with 9 different inputs you can choose from. You could also see the name of each input upon activating it.\n\nFeel free to change the volume if you ever find the sound to be too loud.",
+    "img": "/images/drum-machine-og.PNG",
+    "desc": "A drum machine with 9 different inputs you can choose from. See the name of each input upon its activation.\n\nYou can change the volume if you ever find the sound to be too loud.",
     "github": "https://github.com/pomubry/drum-machine/",
     "site": "https://pomubry.github.io/drum-machine/"
   }

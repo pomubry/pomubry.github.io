@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "rmBuild": "rm -rf .next out",
+    "deploy": "next build && next export && touch out/.nojekyll && gh-pages -d out -t true && rm -rf .next out"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.2.6",
@@ -25,6 +27,7 @@
     "@types/react-dom": "18.0.6",
     "eslint": "8.21.0",
     "eslint-config-next": "12.2.4",
+    "gh-pages": "^4.0.0",
     "typescript": "4.7.4"
   }
 }

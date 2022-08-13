@@ -23,7 +23,9 @@ const Icon = () => {
 
       <br />
 
-      <Heading as="h3">Secondary</Heading>
+      <Heading as="h3" fontSize="lg">
+        Secondary
+      </Heading>
       <Flex justify="space-around" flexWrap="wrap" gap={3} my={5}>
         <Tag label="Sass" icon={SiSass} />
         <Tag label="ExpressJS" icon={SiExpress} />

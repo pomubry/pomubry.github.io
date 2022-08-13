@@ -66,7 +66,8 @@ const ContactForm = () => {
       flexDirection="column"
       gap={3}
       mb={10}
-      p={10}
+      p={8}
+      flex={2}
       bgColor={bgColor}
       borderColor={color}
       borderRadius="xl"
@@ -112,6 +113,7 @@ const ContactForm = () => {
           name="message"
           placeholder="Please enter your message"
           focusBorderColor={color}
+          rows={5}
           required
           sx={{ textIndent: 25 }}
         />
