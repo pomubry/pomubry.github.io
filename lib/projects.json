@@ -4,7 +4,7 @@
     "img": "/images/cafe-og.PNG",
     "desc": "A full stack application where you hit the notes that are moving along the rhythm of the song.\n\nIt uses React for the frontend, Node and Express for the backend, as well as MongoDB for its database.",
     "github": "https://github.com/pomubry/circle-animation/",
-    "site": "https://circle-animation-fe.netlify.app/"
+    "site": "https://pomubry.github.io/circle-animation/"
   },
   {
     "title": "NextAni Database",
