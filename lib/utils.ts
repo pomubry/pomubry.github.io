@@ -1,9 +1,7 @@
 import { z } from "zod";
 
 export const bodySchema = z.object({
-  user_name: z
-    .string()
-    .min(5, { message: "Username should be at least 5 characters long" }),
+  user_name: z.string().min(1, { message: "Name should not be empty" }),
   user_email: z
     .string()
     .min(1, { message: "Email should not be empty" })

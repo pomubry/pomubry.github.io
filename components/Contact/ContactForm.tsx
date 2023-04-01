@@ -64,7 +64,7 @@ const ContactForm = () => {
           acc[key] = fieldErrors[key]![0];
           return acc;
         },
-        { ...formError }
+        { ...initialError }
       );
       setIsLoading(false);
       return setFormError(errors);
