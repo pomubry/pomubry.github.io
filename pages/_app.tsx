@@ -3,6 +3,8 @@ import Head from "next/head";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "../lib/index";
 
+import "../styles/globals.css";
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
