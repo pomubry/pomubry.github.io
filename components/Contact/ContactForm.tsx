@@ -15,7 +15,8 @@ import {
 } from "@chakra-ui/react";
 import { MdOutlineEmail, MdOutlineMessage, MdSend } from "react-icons/md";
 import { BiUser } from "react-icons/bi";
-import { bodySchema, bodyType } from "../../lib/utils";
+import { mailFormSchema } from "@/lib/validation";
+import type { MailForm } from "@/lib/types";
 
 interface EmailRes {
   title: string;
@@ -43,7 +44,7 @@ const color = "purple.500";
 
 const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [formError, setFormError] = useState<bodyType>(initialError);
+  const [formError, setFormError] = useState<MailForm>(initialError);
   const toast = useToast();
   const bgColor = useColorModeValue("gray.100", "gray.900");
 
@@ -54,17 +55,17 @@ const ContactForm = () => {
 
     const formData = new FormData(e.currentTarget as HTMLFormElement);
     const formDataValue = Object.fromEntries(formData.entries());
-    const parsedBody = bodySchema.safeParse(formDataValue);
+    const parsedBody = mailFormSchema.safeParse(formDataValue);
 
     if (!parsedBody.success) {
       const fieldErrors = parsedBody.error.formErrors.fieldErrors;
       const errors = Object.keys(fieldErrors).reduce(
         (acc, cur) => {
-          const key = cur as keyof bodyType;
+          const key = cur as keyof MailForm;
           acc[key] = fieldErrors[key]![0];
           return acc;
         },
-        { ...initialError }
+        { ...initialError },
       );
       setIsLoading(false);
       return setFormError(errors);

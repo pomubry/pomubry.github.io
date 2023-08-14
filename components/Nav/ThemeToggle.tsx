@@ -1,16 +1,72 @@
-import { Icon, IconButton, useColorMode } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
+import * as Switch from "@radix-ui/react-switch";
+import { Transition } from "@headlessui/react";
 import { MdNightlight, MdLightMode } from "react-icons/md";
+import { getAppTheme, setDarkMode, setLightMode } from "@/lib/theme";
 
 const ThemeToggle = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const themeIcon = colorMode === "dark" ? MdNightlight : MdLightMode;
+  const [isDarkMode, setIsDarkMode] = useState<boolean | null>(null);
+
+  const toggleColorMode = () => {
+    if (isDarkMode) {
+      setLightMode();
+      setIsDarkMode(false);
+    } else {
+      setDarkMode();
+      setIsDarkMode(true);
+    }
+  };
+
+  useEffect(() => {
+    if (getAppTheme() === "dark") {
+      setIsDarkMode(true);
+    } else {
+      setIsDarkMode(false);
+    }
+  }, []);
+
+  if (isDarkMode === null) return null;
 
   return (
-    <IconButton
-      aria-label="Toggle theme button"
-      icon={<Icon as={themeIcon} />}
-      onClick={() => toggleColorMode()}
-    />
+    <form>
+      <div className="flex items-center">
+        <Switch.Root
+          className="relative h-[25px] w-[42px] cursor-pointer rounded-full bg-gray-950 shadow-[0_2px_10px] shadow-black outline-none focus:shadow-[0_0_0_2px] focus:shadow-black data-[state=checked]:bg-black "
+          id="theme-mode"
+          checked={isDarkMode}
+          onClick={toggleColorMode}
+        >
+          <Switch.Thumb
+            className={`relative block h-[21px] w-[21px] translate-x-0.5 rounded-full bg-white text-gray-950 shadow-[0_2px_2px] shadow-black transition-transform duration-300 will-change-transform data-[state=checked]:translate-x-[19px]`}
+          >
+            <Transition
+              show={isDarkMode}
+              enter="transition-opacity duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity duration-300"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+              className="absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]"
+            >
+              <MdNightlight />
+            </Transition>
+            <Transition
+              show={!isDarkMode}
+              enter="transition-opacity duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="transition-opacity duration-300"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+              className="absolute left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%]"
+            >
+              <MdLightMode />
+            </Transition>
+          </Switch.Thumb>
+        </Switch.Root>
+      </div>
+    </form>
   );
 };
 
