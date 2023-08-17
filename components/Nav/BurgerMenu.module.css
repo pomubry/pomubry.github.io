@@ -1,0 +1,4 @@
+.fillStroke path {
+  stroke: currentColor;
+  fill: currentColor;
+}

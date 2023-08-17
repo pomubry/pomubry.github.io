@@ -31,13 +31,13 @@ const ThemeToggle = () => {
     <form>
       <div className="flex items-center">
         <Switch.Root
-          className="relative h-[25px] w-[42px] cursor-pointer rounded-full bg-gray-950 shadow-[0_2px_10px] shadow-black outline-none focus:shadow-[0_0_0_2px] focus:shadow-black data-[state=checked]:bg-black "
+          className="relative h-[25px] w-[42px] cursor-pointer rounded-full bg-gray-100 outline-none duration-300 data-[state=checked]:bg-gray-900"
           id="theme-mode"
           checked={isDarkMode}
           onClick={toggleColorMode}
         >
           <Switch.Thumb
-            className={`relative block h-[21px] w-[21px] translate-x-0.5 rounded-full bg-white text-gray-950 shadow-[0_2px_2px] shadow-black transition-transform duration-300 will-change-transform data-[state=checked]:translate-x-[19px]`}
+            className={`relative block h-[21px] w-[21px] translate-x-0.5 rounded-full bg-purple-300 text-gray-950 transition-transform duration-300 will-change-transform data-[state=checked]:translate-x-[19px]`}
           >
             <Transition
               show={isDarkMode}

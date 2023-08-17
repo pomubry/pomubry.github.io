@@ -1,11 +1,5 @@
-import { Heading } from "@chakra-ui/react";
-
 const Logo = () => {
-  return (
-    <Heading size="2xl" flex={1} userSelect="none">
-      BT
-    </Heading>
-  );
+  return <span className="flex-1 select-none text-5xl font-extrabold">BT</span>;
 };
 
 export default Logo;
