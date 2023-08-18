@@ -4,7 +4,7 @@ import { MdMenu } from "react-icons/md";
 import { GoProjectRoadmap } from "react-icons/go";
 import { GrTechnology, GrContactInfo } from "react-icons/gr"; // Bugged, so override fill & stroke with css module
 
-import styles from "./BurgerMenu.module.css";
+import styles from "./Links.module.css";
 
 interface PropType {
   title: string;
@@ -30,7 +30,7 @@ const ListItem = forwardRef(function Item(
     <li>
       <NavigationMenu.Link asChild>
         <a
-          className={`flex select-none justify-between gap-5 rounded-[6px] p-3 text-[15px] font-bold leading-none text-purple-600 no-underline outline-none transition-colors hover:bg-purple-300/50 focus:shadow-[0_0_0_2px] focus:shadow-purple-600 dark:text-purple-300 ${className}`}
+          className={`flex select-none justify-between gap-5 rounded-[6px] p-3 text-[15px] font-bold leading-none text-purple-600 no-underline outline-none transition-colors hover:bg-purple-300/50 focus:shadow-[0_0_0_2px] focus:shadow-purple-600 dark:text-purple-300 ${styles.fillStroke} ${className}`}
           {...props}
           ref={forwardedRef}
         >
@@ -70,34 +70,34 @@ const BurgerMenu = () => {
                 aria-hidden
               />
             </NavigationMenu.Trigger>
-            <NavigationMenu.Content className="data-[motion=from-start]:animate-enterFromLeft data-[motion=from-end]:animate-enterFromRight data-[motion=to-start]:animate-exitToLeft data-[motion=to-end]:animate-exitToRight bg-gray-100 dark:bg-gray-900">
+            <NavigationMenu.Content className="bg-gray-100 data-[motion=from-end]:animate-enterFromRight data-[motion=from-start]:animate-enterFromLeft data-[motion=to-end]:animate-exitToRight data-[motion=to-start]:animate-exitToLeft dark:bg-gray-900">
               <ul className="list-none p-3">
                 <ListItem
                   href="#projects"
                   title="Projects"
-                  icon={<GoProjectRoadmap className={styles.fillStroke} />}
+                  icon={<GoProjectRoadmap />}
                 />
                 <ListItem
                   href="#technologies"
                   title="Technologies"
-                  icon={<GrTechnology className={styles.fillStroke} />}
+                  icon={<GrTechnology />}
                 />
                 <ListItem
                   href="#contact"
                   title="Contact"
-                  icon={<GrContactInfo className={styles.fillStroke} />}
+                  icon={<GrContactInfo />}
                 />
               </ul>
             </NavigationMenu.Content>
           </NavigationMenu.Item>
 
-          <NavigationMenu.Indicator className="data-[state=visible]:animate-fadeIn data-[state=hidden]:animate-fadeOut top-full z-[1] flex h-[10px] items-end justify-center overflow-hidden transition-[width,transform_250ms_ease]">
+          <NavigationMenu.Indicator className="top-full z-[1] flex h-[10px] items-end justify-center overflow-hidden transition-[width,transform_250ms_ease] data-[state=hidden]:animate-fadeOut data-[state=visible]:animate-fadeIn">
             <div className="relative top-[70%] h-[10px] w-[10px] rotate-[45deg] rounded-tl-[2px] bg-gray-100 dark:bg-gray-900" />
           </NavigationMenu.Indicator>
         </NavigationMenu.List>
 
         <div className="absolute left-0 top-full -translate-x-[50%] rounded-lg">
-          <NavigationMenu.Viewport className="data-[state=open]:animate-scaleIn data-[state=closed]:animate-scaleOut mt-[7px] h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-lg transition-[width,_height] duration-300 sm:w-[var(--radix-navigation-menu-viewport-width)]" />
+          <NavigationMenu.Viewport className="mt-[10px] h-[var(--radix-navigation-menu-viewport-height)] w-full origin-[top_center] overflow-hidden rounded-lg transition-[width,_height] duration-300 data-[state=closed]:animate-scaleOut data-[state=open]:animate-scaleIn sm:w-[var(--radix-navigation-menu-viewport-width)]" />
         </div>
       </NavigationMenu.Root>
     </>
