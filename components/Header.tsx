@@ -6,7 +6,7 @@ const Header = () => {
       <h1 className="text-5xl font-black sm:text-6xl md:text-7xl">
         Welcome to my profile!
       </h1>
-      <div className="my-14 grid gap-3 text-base font-bold sm:text-xl md:text-2xl">
+      <div className="my-10 grid gap-3 text-base font-bold sm:text-xl md:text-2xl">
         <p>
           Check all the projects that I have done so far or take a look at all
           the technologies used for my projects
