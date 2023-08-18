@@ -31,7 +31,7 @@ const ThemeToggle = () => {
     <form>
       <div className="flex items-center">
         <Switch.Root
-          className="relative h-[25px] w-[42px] cursor-pointer rounded-full bg-gray-100 outline-none duration-300 data-[state=checked]:bg-gray-900"
+          className="relative h-[25px] w-[42px] cursor-pointer rounded-full bg-gray-100 shadow-md outline-none duration-300 data-[state=checked]:bg-gray-900"
           id="theme-mode"
           checked={isDarkMode}
           onClick={toggleColorMode}
