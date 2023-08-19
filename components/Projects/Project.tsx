@@ -1,13 +1,3 @@
-import {
-  Button,
-  Grid,
-  GridItem,
-  Heading,
-  Icon,
-  Image,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
 import { BsGithub, BsLink } from "react-icons/bs";
 
 interface ProjectProps {
@@ -19,6 +9,25 @@ interface ProjectProps {
   index: number;
 }
 
+interface LinkProps {
+  site: string;
+  text: string;
+  icon: React.ReactNode;
+}
+
+const LinkButton = ({ site, text, icon }: LinkProps) => {
+  return (
+    <a
+      href={site}
+      target="_blank"
+      rel="noopener"
+      className="flex max-w-min items-center justify-between gap-5 rounded-lg border border-purple-600 p-2 text-sm font-semibold text-purple-600 duration-300 hover:bg-purple-300/50 dark:border-purple-300 dark:text-purple-300 dark:hover:bg-purple-300/20 md:mr-3 md:p-3"
+    >
+      {text} {icon}
+    </a>
+  );
+};
+
 const Project: React.FC<ProjectProps> = ({
   title,
   img,
@@ -27,55 +36,30 @@ const Project: React.FC<ProjectProps> = ({
   site,
   index,
 }) => {
-  const bgColor = useColorModeValue("gray.100", "gray.900");
   const isEven = index % 2 === 0;
   return (
-    <Grid
-      templateColumns={["1fr", null, "1fr 1fr"]}
-      alignItems="center"
-      gap={5}
-      my={10}
-      p={8}
-      borderRadius="xl"
-      bgColor={bgColor}
-      boxShadow="dark-lg"
-    >
+    <ul className="my-10 grid grid-cols-1 items-center gap-5 rounded-lg bg-gray-100 p-8 shadow-xl duration-300 dark:bg-gray-900 md:grid-cols-2">
       {/* Image */}
-      <GridItem justifySelf="center" order={{ base: 1, md: isEven ? 1 : 2 }}>
-        <Image src={img} alt={title} borderRadius="xl" />
-      </GridItem>
+      <li
+        className={`order-1 overflow-hidden rounded-lg ${
+          isEven ? "md:order-1" : "md:order-2"
+        }`}
+      >
+        <picture>
+          <img src={img} alt={title} className="object-cover" />
+        </picture>
+      </li>
 
       {/* Description */}
-      <GridItem order={{ base: 2, md: isEven ? 2 : 1 }}>
-        <Heading as="h3">{title}</Heading>
-        <Text whiteSpace="pre-line" mt={2} mb={5}>
-          {desc}
-        </Text>
-        <Button
-          as="a"
-          href={github}
-          target="_blank"
-          rel="noopener"
-          rightIcon={<Icon as={BsGithub} />}
-          size={{ base: "sm", sm: "md" }}
-          mr={{ base: 3 }}
-        >
-          Github
-        </Button>
-        {site && (
-          <Button
-            as="a"
-            href={site}
-            target="_blank"
-            rel="noopener"
-            rightIcon={<Icon as={BsLink} />}
-            size={{ base: "sm", sm: "md" }}
-          >
-            App
-          </Button>
-        )}
-      </GridItem>
-    </Grid>
+      <li className={`order-2 ${isEven ? "md:order-2" : "md:order-1"}`}>
+        <h3 className="text-3xl font-extrabold">{title}</h3>
+        <p className="mb-5 mt-2 whitespace-pre-line">{desc}</p>
+        <div className="flex gap-3">
+          <LinkButton site={github} text="Github" icon={<BsGithub />} />
+          {site && <LinkButton site={site} text="App" icon={<BsLink />} />}
+        </div>
+      </li>
+    </ul>
   );
 };
 export default Project;

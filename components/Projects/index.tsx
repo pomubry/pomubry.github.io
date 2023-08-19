@@ -1,9 +1,9 @@
-import { Box } from "@chakra-ui/react";
 import Project from "./Project";
 import projects from "../../lib/projects.json";
+
 const Projects = () => {
   return (
-    <Box>
+    <section>
       {projects.map((item, index) => (
         <Project
           title={item.title}
@@ -15,7 +15,8 @@ const Projects = () => {
           key={item.title}
         />
       ))}
-    </Box>
+    </section>
   );
 };
+
 export default Projects;

@@ -29,9 +29,9 @@ const Home: NextPage = () => {
         <NavLinks />
         <Header />
 
-        <Heading id="projects" mt={20} mb={10}>
+        <h2 id="projects" className="mb-10 mt-20 text-4xl font-black">
           Projects
-        </Heading>
+        </h2>
         <Projects />
 
         <Heading id="technologies" mt={20} mb={10}>
