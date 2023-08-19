@@ -22,11 +22,11 @@ const Fab = () => {
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Content
-            className={`${styles.TooltipContent} select-none rounded-lg bg-gray-100 p-4 text-sm leading-none text-purple-600 shadow-xl will-change-[transform,opacity] dark:bg-gray-900 dark:text-purple-300`}
+            className={`${styles.TooltipContent} select-none rounded-lg bg-gray-100 p-4 text-sm font-semibold leading-none text-purple-600 shadow-xl will-change-[transform,opacity] dark:bg-slate-900 dark:text-purple-300`}
             sideOffset={5}
           >
             Scroll to the top
-            <Tooltip.Arrow className=" fill-gray-100 dark:fill-gray-900" />
+            <Tooltip.Arrow className=" fill-gray-100 dark:fill-slate-900" />
           </Tooltip.Content>
         </Tooltip.Portal>
       </Tooltip.Root>
