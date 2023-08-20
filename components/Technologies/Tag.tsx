@@ -1,17 +1,17 @@
-import { Tag, TagLabel, TagLeftIcon } from "@chakra-ui/react";
 import { IconType } from "react-icons";
 
-interface Props {
-  label: string;
-  icon: IconType;
+interface TagProps {
+  text: string;
+  Icon: IconType;
 }
 
-const IconContainer = ({ label, icon }: Props) => {
+const Tag = ({ text, Icon }: TagProps) => {
   return (
-    <Tag size="md" variant="subtle" colorScheme="purple" p={3}>
-      <TagLeftIcon boxSize={{ base: 4, sm: 7 }} as={icon} />
-      <TagLabel>{label}</TagLabel>
-    </Tag>
+    <span className="flex flex-1 justify-center gap-3 rounded-lg bg-gray-300 p-3 text-center text-purple-600 dark:bg-gray-700 dark:text-purple-300">
+      <Icon className="text-2xl" />
+      {text}
+    </span>
   );
 };
-export default IconContainer;
+
+export default Tag;

@@ -34,9 +34,9 @@ const Home: NextPage = () => {
         </h2>
         <Projects />
 
-        <Heading id="technologies" mt={20} mb={10}>
+        <h2 id="projects" className="mb-10 mt-20 text-4xl font-black">
           Technologies
-        </Heading>
+        </h2>
         <Technologies />
 
         <Heading id="contact" mt={20}>

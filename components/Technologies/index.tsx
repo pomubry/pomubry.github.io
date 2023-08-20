@@ -1,27 +1,21 @@
-import { Box, Divider, Heading, Text } from "@chakra-ui/react";
 import TagContainer from "./TagContainer";
 
 const Technologies = () => {
   return (
-    <Box
-      display="grid"
-      gap={10}
-      gridTemplateColumns={{ md: "1fr 1fr" }}
-      alignItems="center"
-    >
-      <Box>
-        <Heading as="h3" textAlign="center">
+    <section className="grid items-center gap-10 md:grid-cols-2">
+      <div>
+        <h3 className="text-center text-2xl font-extrabold">
           These are what I have used so far...
-        </Heading>
-        <Divider my={5} borderRadius="full" border="2px solid gray" />
-        <Text fontWeight={600} textAlign="center">
+        </h3>
+        <hr className="border-lg my-5 border-2 border-solid border-gray-500" />
+        <p className="text-center">
           I&apos;m mostly familiar with React for the frontend, while I know
           just enough to make a functional API with Express.js for the backend,
-          and MongoDB for the database.
-        </Text>
-      </Box>
+          and PostgreSQL for the database.
+        </p>
+      </div>
       <TagContainer />
-    </Box>
+    </section>
   );
 };
 export default Technologies;
