@@ -1,0 +1,43 @@
+.ToastRoot[data-state="open"] {
+  animation: slideIn 300ms ease;
+}
+.ToastRoot[data-state="closed"] {
+  animation: hide 300ms ease-in;
+}
+.ToastRoot[data-swipe="move"] {
+  transform: translateX(var(--radix-toast-swipe-move-x));
+}
+.ToastRoot[data-swipe="cancel"] {
+  transform: translateX(0);
+  transition: transform 300ms ease;
+}
+.ToastRoot[data-swipe="end"] {
+  animation: swipeOut 300ms ease;
+}
+
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(calc(100% + 25px));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes swipeOut {
+  from {
+    transform: translateX(var(--radix-toast-swipe-end-x));
+  }
+  to {
+    transform: translateX(calc(100% + 25px));
+  }
+}

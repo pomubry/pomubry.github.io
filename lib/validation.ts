@@ -10,3 +10,12 @@ export const mailFormSchema = z.object({
     .string()
     .min(5, { message: "Message should be at least 5 characters long" }),
 });
+
+export const mailStatusSchema = z.string().optional();
+
+export const mailResponseSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  status: mailStatusSchema,
+  apiDescription: z.string(),
+});
