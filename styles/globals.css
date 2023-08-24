@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .text-purple {
+    @apply text-purple-600 duration-300 dark:text-purple-300;
+  }
+
+  .bg-card {
+    @apply bg-gray-100 duration-300 dark:bg-gray-900;
+  }
+}

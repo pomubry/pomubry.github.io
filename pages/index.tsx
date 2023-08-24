@@ -1,5 +1,3 @@
-import { Container, Heading } from "@chakra-ui/react";
-import type { NextPage } from "next";
 import Head from "next/head";
 import NavLinks from "../components/Nav/";
 import Header from "../components/Header";
@@ -8,6 +6,7 @@ import Technologies from "../components/Technologies";
 import Form from "../components/Contact";
 import Fab from "../components/Fab";
 import GHButton from "../components/GHButton";
+import type { NextPage } from "next";
 
 const Home: NextPage = () => {
   return (
@@ -25,7 +24,7 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <Container maxW="5xl" py={5}>
+      <div className="container mx-auto max-w-5xl p-5">
         <NavLinks />
         <Header />
 
@@ -39,14 +38,14 @@ const Home: NextPage = () => {
         </h2>
         <Technologies />
 
-        <Heading id="contact" mt={20}>
+        <h2 id="contact" className="mt-20 text-4xl font-black">
           Contact
-        </Heading>
+        </h2>
         <Form />
 
         <GHButton />
         <Fab />
-      </Container>
+      </div>
     </>
   );
 };

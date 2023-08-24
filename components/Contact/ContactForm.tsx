@@ -1,75 +1,29 @@
-import React, { FormEventHandler, useState } from "react";
-import {
-  Box,
-  Button,
-  FormControl,
-  FormErrorMessage,
-  Heading,
-  Input,
-  InputGroup,
-  InputLeftElement,
-  Textarea,
-  useColorModeValue,
-  useToast,
-  UseToastOptions,
-} from "@chakra-ui/react";
+import { useState } from "react";
+import * as Form from "@radix-ui/react-form";
 import { MdOutlineEmail, MdOutlineMessage, MdSend } from "react-icons/md";
 import { BiUser } from "react-icons/bi";
-import { mailFormSchema } from "@/lib/validation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import { FormField, FormLabel, FormGroup, FormMessage } from "./FormMembers";
+import { Toast, useToastProps } from "@/lib/toast";
+import { mailFormSchema, mailResponseSchema } from "@/lib/validation";
 import type { MailForm } from "@/lib/types";
-
-interface EmailRes {
-  title: string;
-  description: string;
-  status?: "info" | "warning" | "success" | "error" | "loading";
-  apiDescription: string;
-}
-
-type SubmitHandler = FormEventHandler<HTMLDivElement> &
-  FormEventHandler<HTMLFormElement>;
-
-const initialError = {
-  user_name: "",
-  user_email: "",
-  message: "",
-};
-
-const toastProps: UseToastOptions = {
-  duration: 9000,
-  position: "bottom-left",
-  isClosable: true,
-};
-
-const color = "purple.500";
 
 const ContactForm = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [formError, setFormError] = useState<MailForm>(initialError);
-  const toast = useToast();
-  const bgColor = useColorModeValue("gray.100", "gray.900");
+  const { toastProps, setToast } = useToastProps();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<MailForm>({
+    resolver: zodResolver(mailFormSchema),
+  });
 
-  const handleSubmit: SubmitHandler = async (e) => {
-    e.preventDefault();
+  const onSubmit = handleSubmit(async (formData) => {
+    console.log("submitting", formData);
     setIsLoading(true);
-    setFormError(initialError);
-
-    const formData = new FormData(e.currentTarget as HTMLFormElement);
-    const formDataValue = Object.fromEntries(formData.entries());
-    const parsedBody = mailFormSchema.safeParse(formDataValue);
-
-    if (!parsedBody.success) {
-      const fieldErrors = parsedBody.error.formErrors.fieldErrors;
-      const errors = Object.keys(fieldErrors).reduce(
-        (acc, cur) => {
-          const key = cur as keyof MailForm;
-          acc[key] = fieldErrors[key]![0];
-          return acc;
-        },
-        { ...initialError },
-      );
-      setIsLoading(false);
-      return setFormError(errors);
-    }
 
     try {
       const res = await fetch("https://headlessani.vercel.app/api/email", {
@@ -77,32 +31,41 @@ const ContactForm = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(parsedBody.data),
+        body: JSON.stringify(formData),
       });
-      const data = (await res.json()) as EmailRes;
-      const { apiDescription, ...toastData } = data;
-      toast({
-        ...toastData,
-        ...toastProps,
-      });
+      const data = await res.json();
+
+      const mailRes = mailResponseSchema.safeParse(data);
+
+      if (!mailRes.success) {
+        console.error(mailRes.error.format());
+        throw {
+          title: "Error",
+          description: "The return data is invalid",
+          status: "error",
+          apiDescription: "--- The error has been logged ---",
+        };
+      }
+
+      const { apiDescription, ...toastData } = mailRes.data;
+      console.log(apiDescription);
+      setToast(toastData);
     } catch (e) {
       console.error(e);
-      if (e instanceof TypeError) {
-        toast({
-          ...toastProps,
+      const mailRes = mailResponseSchema.safeParse(e);
+
+      if (mailRes.success) {
+        const { apiDescription, ...toastData } = mailRes.data;
+        console.error(apiDescription);
+        setToast(toastData);
+      } else if (e instanceof TypeError) {
+        setToast({
           title: e.name,
           description: e.message,
           status: "error",
         });
-      } else if ((e as EmailRes)?.apiDescription?.length > 0) {
-        const { apiDescription, ...toastData } = e as EmailRes;
-        toast({
-          ...toastProps,
-          ...toastData,
-        });
       } else {
-        toast({
-          ...toastProps,
+        setToast({
           title: "Error",
           description: "Something went wrong",
           status: "error",
@@ -111,97 +74,84 @@ const ContactForm = () => {
     } finally {
       setIsLoading(false);
     }
-  };
+  });
+
+  const userNameError = errors.user_name?.message;
+  const userEmailError = errors.user_email?.message;
+  const messageError = errors.message?.message;
 
   return (
-    <Box
-      as="form"
-      display="flex"
-      flexDirection="column"
-      gap={3}
-      mb={10}
-      p={8}
-      flex={2}
-      bgColor={bgColor}
-      borderColor={color}
-      borderRadius="xl"
-      boxShadow="dark-lg"
-      onSubmit={handleSubmit}
-    >
-      <Heading as="h3" size="md">
-        Send me a message!
-      </Heading>
-
-      <FormControl isInvalid={!!formError.user_name.length}>
-        <InputGroup borderColor={color}>
-          <InputLeftElement pointerEvents="none" color={color}>
-            <BiUser />
-          </InputLeftElement>
-          <Input
-            type="text"
-            name="user_name"
-            placeholder="Name"
-            defaultValue={""}
-            focusBorderColor={color}
-            required
-          />
-        </InputGroup>
-        {!!formError.user_name.length && (
-          <FormErrorMessage>{formError.user_name}</FormErrorMessage>
-        )}
-      </FormControl>
-
-      <FormControl isInvalid={!!formError.user_email.length}>
-        <InputGroup borderColor={color}>
-          <InputLeftElement pointerEvents="none" color={color}>
-            <MdOutlineEmail />
-          </InputLeftElement>
-          <Input
-            type="email"
-            name="user_email"
-            defaultValue={""}
-            placeholder="Email"
-            focusBorderColor={color}
-            required
-          />
-        </InputGroup>
-        {!!formError.user_email.length && (
-          <FormErrorMessage>{formError.user_email}</FormErrorMessage>
-        )}
-      </FormControl>
-
-      <FormControl isInvalid={!!formError.message.length}>
-        <InputGroup borderColor={color}>
-          <InputLeftElement pointerEvents="none" color={color}>
-            <MdOutlineMessage />
-          </InputLeftElement>
-          <Textarea
-            name="message"
-            placeholder="Please enter your message"
-            focusBorderColor={color}
-            rows={5}
-            required
-            defaultValue={""}
-            sx={{ textIndent: 25 }}
-          />
-        </InputGroup>
-        {!!formError.message.length && (
-          <FormErrorMessage>{formError.message}</FormErrorMessage>
-        )}
-      </FormControl>
-
-      <Button
-        type="submit"
-        w="min"
-        leftIcon={<MdSend />}
-        variant="solid"
-        isLoading={isLoading}
-        isDisabled={isLoading}
-        loadingText="Submitting"
+    <>
+      <Form.Root
+        className="bg-card mb-10 flex flex-[2] flex-col gap-5 rounded-xl p-10 shadow-xl"
+        onSubmit={onSubmit}
       >
-        Send
-      </Button>
-    </Box>
+        <h3 className="text-xl font-bold">Send me a message!</h3>
+        <FormField name="user_name" serverInvalid={!!userNameError}>
+          <FormLabel>Name:</FormLabel>
+          <FormGroup
+            Icon={BiUser}
+            input={
+              <input
+                className="w-full bg-transparent outline-none"
+                type="text"
+                placeholder="Name"
+                {...register("user_name")}
+              />
+            }
+          />
+          {!!userNameError && <FormMessage>{userNameError}</FormMessage>}
+        </FormField>
+
+        <FormField name="user_email" serverInvalid={!!userEmailError}>
+          <FormLabel>Email:</FormLabel>
+          <FormGroup
+            Icon={MdOutlineEmail}
+            input={
+              <input
+                className="w-full bg-transparent outline-none"
+                type="email"
+                placeholder="Email"
+                {...register("user_email")}
+              />
+            }
+          />
+
+          {!!userEmailError && <FormMessage>{userEmailError}</FormMessage>}
+        </FormField>
+
+        <FormField name="message" serverInvalid={!!messageError}>
+          <FormLabel>Message:</FormLabel>
+          <FormGroup
+            Icon={MdOutlineMessage}
+            input={
+              <textarea
+                className="w-full bg-transparent indent-6 outline-none"
+                placeholder="Please enter your message"
+                rows={3}
+                {...register("message")}
+              />
+            }
+          />
+          {!!messageError && <FormMessage>{messageError}</FormMessage>}
+        </FormField>
+        <Form.Submit asChild>
+          <button
+            type="submit"
+            disabled={isLoading}
+            className={`flex w-min items-center gap-3 rounded-lg bg-purple-300/50 p-3 duration-300 hover:bg-purple-400/50 dark:bg-purple-300/20 dark:hover:bg-purple-400/20 ${
+              isLoading ? "opacity-50" : "opacity-100"
+            }`}
+          >
+            <MdSend />
+            {isLoading ? "Submitting..." : "Send"}
+          </button>
+        </Form.Submit>
+        <div>
+          <Toast toastProps={toastProps} setToast={setToast} />
+        </div>
+      </Form.Root>
+    </>
   );
 };
 export default ContactForm;
