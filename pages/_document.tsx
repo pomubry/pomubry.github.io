@@ -7,7 +7,7 @@ export default class Document extends NextDocument {
     return (
       <Html lang="en">
         <Head />
-        <body className="flex min-h-screen flex-col justify-between bg-gray-300 text-gray-800 transition duration-300 dark:bg-gray-800 dark:text-gray-100">
+        <body className="duration-ease flex min-h-screen flex-col justify-between bg-gray-300 text-gray-800 transition dark:bg-gray-800 dark:text-gray-100">
           {/* 👇 Here's the script */}
           <Main />
           <NextScript />

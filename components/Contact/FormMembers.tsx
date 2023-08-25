@@ -36,7 +36,7 @@ const FormGroup = ({
 }) => {
   return (
     <div
-      className={`flex items-center gap-3 rounded-lg border border-purple-600 p-3 group-data-[invalid=true]:border-red-600 dark:border-purple-300 group-data-[invalid=true]:dark:border-red-300`}
+      className={`duration-ease flex items-center gap-3 rounded-lg border border-purple-600 p-3 group-data-[invalid=true]:border-red-600 dark:border-purple-300 group-data-[invalid=true]:dark:border-red-300`}
     >
       <span>
         <Icon className="text-purple pointer-events-none" />

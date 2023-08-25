@@ -1,4 +1,5 @@
 import { BsGithub, BsLink } from "react-icons/bs";
+import type { IconType } from "react-icons";
 
 interface ProjectProps {
   title: string;
@@ -13,10 +14,10 @@ interface LinkProps {
   title: string;
   site: string;
   text: string;
-  icon: React.ReactNode;
+  Icon: IconType;
 }
 
-const LinkButton = ({ title, site, text, icon }: LinkProps) => {
+const LinkButton = ({ title, site, text, Icon }: LinkProps) => {
   const ariaLabel = `${
     site.includes("github") ? "Github repository" : "Application"
   } link for ${title}`;
@@ -26,27 +27,20 @@ const LinkButton = ({ title, site, text, icon }: LinkProps) => {
       href={site}
       target="_blank"
       rel="noopener"
-      className="flex max-w-min items-center justify-between gap-5 rounded-lg border border-purple-600 p-2 text-sm font-semibold text-purple-600 duration-300 hover:bg-purple-300/50 dark:border-purple-300 dark:text-purple-300 dark:hover:bg-purple-300/20 md:mr-3 md:p-3"
+      className="duration-ease flex items-center justify-between gap-5 rounded-lg border border-purple-600 p-2 text-sm font-semibold hover:bg-gray-200 dark:border-purple-300 dark:hover:bg-gray-800 md:mr-3 md:p-3"
       aria-label={ariaLabel}
     >
-      {text} {icon}
+      {text} <Icon className="text-purple" />
     </a>
   );
 };
 
-const Project: React.FC<ProjectProps> = ({
-  title,
-  img,
-  desc,
-  github,
-  site,
-  index,
-}) => {
+const Project = ({ title, img, desc, github, site, index }: ProjectProps) => {
   const isEven = index % 2 === 0;
   return (
-    <ul className="my-10 grid grid-cols-1 items-center gap-5 rounded-lg bg-gray-100 p-8 shadow-xl duration-300 dark:bg-gray-900 md:grid-cols-2">
+    <li className="bg-card my-10 grid grid-cols-1 items-center gap-5 rounded-lg p-8 shadow-xl md:grid-cols-2">
       {/* Image */}
-      <li
+      <div
         className={`order-1 overflow-hidden rounded-lg ${
           isEven ? "md:order-1" : "md:order-2"
         }`}
@@ -54,10 +48,10 @@ const Project: React.FC<ProjectProps> = ({
         <picture>
           <img src={img} alt={title} className="object-cover" />
         </picture>
-      </li>
+      </div>
 
       {/* Description */}
-      <li className={`order-2 ${isEven ? "md:order-2" : "md:order-1"}`}>
+      <div className={`order-2 ${isEven ? "md:order-2" : "md:order-1"}`}>
         <h3 className="text-3xl font-extrabold">{title}</h3>
         <p className="mb-5 mt-2 whitespace-pre-line">{desc}</p>
         <div className="flex gap-3">
@@ -65,19 +59,14 @@ const Project: React.FC<ProjectProps> = ({
             title={title}
             site={github}
             text="Github"
-            icon={<BsGithub />}
+            Icon={BsGithub}
           />
           {site && (
-            <LinkButton
-              title={title}
-              site={site}
-              text="App"
-              icon={<BsLink />}
-            />
+            <LinkButton title={title} site={site} text="App" Icon={BsLink} />
           )}
         </div>
-      </li>
-    </ul>
+      </div>
+    </li>
   );
 };
 export default Project;

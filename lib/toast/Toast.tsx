@@ -29,7 +29,7 @@ const Toast = ({ toastProps, setToast }: PropType) => {
       <ToastPrimitive.Root
         className={`${styles.ToastRoot} ${getBGColor(
           toastProps.status,
-        )} z-[2] grid max-w-xs gap-3 rounded-lg p-3 shadow-lg`}
+        )} duration-ease z-[2] grid max-w-xs gap-3 rounded-lg p-3 shadow-lg`}
         open={toastProps !== null}
         onOpenChange={() => setToast(null)}
       >

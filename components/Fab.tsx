@@ -15,7 +15,7 @@ const Fab = () => {
         <Tooltip.Trigger asChild>
           <button
             onClick={handleScroll}
-            className="fixed bottom-10 right-10 inline-flex h-[35px] w-[35px] items-center justify-center rounded-full bg-gray-100 text-purple-600 shadow-sm shadow-black outline-none duration-300 hover:bg-gray-300 focus:shadow-lg focus:shadow-black dark:bg-gray-900 dark:text-purple-300 dark:hover:bg-gray-700"
+            className="text-purple bg-card fixed bottom-10 right-10 inline-flex h-[35px] w-[35px] items-center justify-center rounded-full shadow-sm shadow-black hover:bg-gray-300 focus:shadow-lg focus:shadow-black dark:hover:bg-gray-700"
             aria-label="Scroll to the top"
           >
             <IoIosArrowUp />
@@ -23,11 +23,11 @@ const Fab = () => {
         </Tooltip.Trigger>
         <Tooltip.Portal>
           <Tooltip.Content
-            className={`${styles.TooltipContent} select-none rounded-lg bg-gray-100 p-4 text-sm font-semibold leading-none text-purple-600 shadow-xl will-change-[transform,opacity] dark:bg-slate-900 dark:text-purple-300`}
+            className={`${styles.TooltipContent} text-purple bg-card select-none rounded-lg p-4 text-sm font-semibold leading-none shadow-lg will-change-[transform,opacity]`}
             sideOffset={5}
           >
             Scroll to the top
-            <Tooltip.Arrow className=" fill-gray-100 dark:fill-slate-900" />
+            <Tooltip.Arrow className="duration-ease fill-gray-100 dark:fill-slate-900" />
           </Tooltip.Content>
         </Tooltip.Portal>
       </Tooltip.Root>

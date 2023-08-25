@@ -5,21 +5,22 @@ import { GoProjectRoadmap } from "react-icons/go";
 import { GrTechnology, GrContactInfo } from "react-icons/gr"; // Bugged, so override fill & stroke with css module
 
 import styles from "./Links.module.css";
+import type { IconType } from "react-icons";
 
-interface PropType {
+interface MobileLinkProps {
   title: string;
-  icon: React.ReactNode;
+  Icon: IconType;
 }
 
 type AnchorRef = React.LegacyRef<HTMLAnchorElement> | undefined;
 
-const ListItem = forwardRef(function Item(
+const MobileLink = forwardRef(function Item(
   {
     className,
     title,
-    icon,
+    Icon,
     ...props
-  }: PropType &
+  }: MobileLinkProps &
     DetailedHTMLProps<
       AnchorHTMLAttributes<HTMLAnchorElement>,
       HTMLAnchorElement
@@ -30,22 +31,22 @@ const ListItem = forwardRef(function Item(
     <li>
       <NavigationMenu.Link asChild>
         <a
-          className={`${styles.fillStroke} ${className} flex select-none justify-between gap-5 rounded-lg p-3 text-sm font-bold leading-none text-purple-600 no-underline outline-none transition-colors hover:bg-purple-300/50 focus:shadow-md focus:shadow-purple-600 dark:text-purple-300`}
+          className={`${styles.fillStroke} ${className} flex justify-between gap-5 rounded-lg p-3 text-sm font-bold duration-300 ease-linear hover:bg-purple-400/50`}
           {...props}
           ref={forwardedRef}
         >
-          {title} {icon}
+          {title} {<Icon className="text-purple" />}
         </a>
       </NavigationMenu.Link>
     </li>
   );
 });
 
-const LinkItem = ({ href, title }: { href: string; title: string }) => {
+const DesktopLink = ({ href, title }: { href: string; title: string }) => {
   return (
     <NavigationMenu.Item className="hidden sm:block">
       <NavigationMenu.Link
-        className="block select-none rounded-lg p-3 font-bold leading-none text-purple-600 no-underline outline-none duration-300 hover:bg-purple-300/60 focus:shadow-blue-300 dark:text-purple-300 dark:hover:bg-purple-300/20"
+        className="text-purple bg-card-hover rounded-lg p-3 font-bold shadow-lg"
         href={href}
       >
         {title}
@@ -58,39 +59,39 @@ const BurgerMenu = () => {
   return (
     <>
       <NavigationMenu.Root className="relative z-[1]">
-        <NavigationMenu.List className="mx-3 flex list-none gap-3 rounded-lg duration-300">
-          <LinkItem href="#projects" title="Projects" />
-          <LinkItem href="#technologies" title="Technologies" />
-          <LinkItem href="#contact" title="Contact" />
+        <NavigationMenu.List className="mx-3 flex gap-3 rounded-lg">
+          <DesktopLink href="#projects" title="Projects" />
+          <DesktopLink href="#technologies" title="Technologies" />
+          <DesktopLink href="#contact" title="Contact" />
 
           <NavigationMenu.Item>
             <NavigationMenu.Trigger
-              className="block select-none rounded-lg p-3 font-bold outline-none duration-300 hover:bg-purple-300/60 dark:hover:bg-purple-300/20 sm:hidden"
+              className={`block rounded-lg p-3 font-bold duration-300 ease-linear data-[state=open]:bg-gray-100/50 dark:data-[state=open]:bg-gray-900/50 sm:hidden`}
               aria-label="Toggle navigation menu"
             >
               <MdMenu
-                className={`${styles.BurgerMenu} text-purple-600 transition-transform duration-300 dark:text-purple-300`}
+                className={`${styles.BurgerMenu} text-purple`}
                 aria-hidden
               />
             </NavigationMenu.Trigger>
             <NavigationMenu.Content
-              className={`${styles.NavigationMenuContent} bg-gray-100 duration-300 dark:bg-gray-900`}
+              className={`${styles.NavigationMenuContent} bg-card`}
             >
-              <ul className="list-none p-3">
-                <ListItem
+              <ul className="p-3">
+                <MobileLink
                   href="#projects"
                   title="Projects"
-                  icon={<GoProjectRoadmap />}
+                  Icon={GoProjectRoadmap}
                 />
-                <ListItem
+                <MobileLink
                   href="#technologies"
                   title="Technologies"
-                  icon={<GrTechnology />}
+                  Icon={GrTechnology}
                 />
-                <ListItem
+                <MobileLink
                   href="#contact"
                   title="Contact"
-                  icon={<GrContactInfo />}
+                  Icon={GrContactInfo}
                 />
               </ul>
             </NavigationMenu.Content>
@@ -99,7 +100,7 @@ const BurgerMenu = () => {
           <NavigationMenu.Indicator
             className={`${styles.NavigationMenuIndicator} top-full z-[1] flex h-[10px] items-end justify-center overflow-hidden`}
           >
-            <div className="relative top-[70%] h-[10px] w-[10px] rotate-[45deg] rounded-tl-[2px] bg-gray-100 dark:bg-gray-900" />
+            <div className="bg-card relative top-[70%] h-[10px] w-[10px] rotate-[45deg] rounded-tl-[2px]" />
           </NavigationMenu.Indicator>
         </NavigationMenu.List>
 

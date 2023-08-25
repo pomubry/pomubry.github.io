@@ -140,17 +140,15 @@ const ContactForm = () => {
           />
           {!!messageError && <FormMessage>{messageError}</FormMessage>}
         </FormField>
-        <Form.Submit asChild>
-          <button
-            type="submit"
-            disabled={isLoading}
-            className={`flex w-min items-center gap-3 rounded-lg bg-purple-300/50 p-3 duration-300 hover:bg-purple-400/50 dark:bg-purple-300/20 dark:hover:bg-purple-400/20 ${
-              isLoading ? "opacity-50" : "opacity-100"
-            }`}
-          >
-            <MdSend />
-            {isLoading ? "Submitting..." : "Send"}
-          </button>
+        <Form.Submit
+          type="submit"
+          disabled={isLoading}
+          className={`duration-ease flex w-min items-center gap-3 rounded-lg bg-gray-300 p-3 font-semibold hover:bg-gray-400/60 dark:bg-gray-800 dark:hover:bg-gray-700 ${
+            isLoading ? "opacity-50" : "opacity-100"
+          }`}
+        >
+          <MdSend className="text-purple" />
+          {isLoading ? "Submitting..." : "Send"}
         </Form.Submit>
         <div>
           <Toast toastProps={toastProps} setToast={setToast} />
