@@ -2,7 +2,7 @@ import GHButton from "./GHButton";
 
 const Header = () => {
   return (
-    <section className="my-20 max-w-[80%] sm:max-w-[70%]">
+    <header className="my-20 max-w-[80%] sm:max-w-[70%]">
       <h1 className="text-5xl font-black sm:text-6xl md:text-7xl">
         Welcome to my profile!
       </h1>
@@ -13,7 +13,7 @@ const Header = () => {
         </p>
       </div>
       <GHButton />
-    </section>
+    </header>
   );
 };
 

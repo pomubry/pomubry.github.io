@@ -16,6 +16,7 @@ const Fab = () => {
           <button
             onClick={handleScroll}
             className="fixed bottom-10 right-10 inline-flex h-[35px] w-[35px] items-center justify-center rounded-full bg-gray-100 text-purple-600 shadow-sm shadow-black outline-none duration-300 hover:bg-gray-300 focus:shadow-lg focus:shadow-black dark:bg-gray-900 dark:text-purple-300 dark:hover:bg-gray-700"
+            aria-label="Scroll to the top"
           >
             <IoIosArrowUp />
           </button>

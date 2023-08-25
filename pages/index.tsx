@@ -28,20 +28,23 @@ const Home: NextPage = () => {
         <NavLinks />
         <Header />
 
-        <h2 id="projects" className="mb-10 mt-20 text-4xl font-black">
-          Projects
-        </h2>
-        <Projects />
+        <main>
+          <h2 id="projects" className="mb-10 mt-20 text-4xl font-black">
+            Projects
+          </h2>
+          <Projects />
+          <h2 id="technologies" className="mb-10 mt-20 text-4xl font-black">
+            Technologies
+          </h2>
+          <Technologies />
+        </main>
 
-        <h2 id="projects" className="mb-10 mt-20 text-4xl font-black">
-          Technologies
-        </h2>
-        <Technologies />
-
-        <h2 id="contact" className="mt-20 text-4xl font-black">
-          Contact
-        </h2>
-        <Form />
+        <footer>
+          <h2 id="contact" className="mt-20 text-4xl font-black">
+            Contact
+          </h2>
+          <Form />
+        </footer>
 
         <GHButton />
         <Fab />

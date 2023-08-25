@@ -64,7 +64,10 @@ const BurgerMenu = () => {
           <LinkItem href="#contact" title="Contact" />
 
           <NavigationMenu.Item>
-            <NavigationMenu.Trigger className="block select-none rounded-lg p-3 font-bold outline-none duration-300 hover:bg-purple-300/60 dark:hover:bg-purple-300/20 sm:hidden">
+            <NavigationMenu.Trigger
+              className="block select-none rounded-lg p-3 font-bold outline-none duration-300 hover:bg-purple-300/60 dark:hover:bg-purple-300/20 sm:hidden"
+              aria-label="Toggle navigation menu"
+            >
               <MdMenu
                 className={`${styles.BurgerMenu} text-purple-600 transition-transform duration-300 dark:text-purple-300`}
                 aria-hidden

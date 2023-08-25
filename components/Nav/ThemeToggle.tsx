@@ -30,11 +30,16 @@ const ThemeToggle = () => {
   return (
     <form>
       <div className="flex items-center">
+        <label className="hidden" htmlFor="theme-mode">
+          Toggle dark mode
+        </label>
+
         <Switch.Root
           className="relative h-[25px] w-[42px] cursor-pointer rounded-full bg-gray-100 shadow-md outline-none duration-300 data-[state=checked]:bg-gray-900"
           id="theme-mode"
           checked={isDarkMode}
           onClick={toggleColorMode}
+          aria-label="Toggle dark mode"
         >
           <Switch.Thumb
             className={`relative block h-[21px] w-[21px] translate-x-0.5 rounded-full bg-purple-300 text-gray-950 transition-transform duration-300 will-change-transform data-[state=checked]:translate-x-[19px]`}

@@ -14,7 +14,7 @@ const Icon = () => {
       <h3 className="text-4xl font-extrabold">Primary</h3>
       <div className="my-5 flex flex-wrap justify-around gap-3">
         <Tag text="React" Icon={SiReact} />
-        <Tag text="NextJS" Icon={SiNextdotjs} />
+        <Tag text="Next.js" Icon={SiNextdotjs} />
         <Tag text="TypeScript" Icon={SiTypescript} />
       </div>
 
@@ -22,8 +22,8 @@ const Icon = () => {
 
       <h3 className="text-2xl font-extrabold">Secondary</h3>
       <div className="my-5 flex flex-wrap justify-around gap-3">
-        <Tag text="VueJS" Icon={SiVuedotjs} />
-        <Tag text="ExpressJS" Icon={SiExpress} />
+        <Tag text="Vue.js" Icon={SiVuedotjs} />
+        <Tag text="Express.js" Icon={SiExpress} />
         <Tag text="PostgreSQL" Icon={SiPostgresql} />
       </div>
     </div>

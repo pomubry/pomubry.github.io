@@ -10,18 +10,24 @@ interface ProjectProps {
 }
 
 interface LinkProps {
+  title: string;
   site: string;
   text: string;
   icon: React.ReactNode;
 }
 
-const LinkButton = ({ site, text, icon }: LinkProps) => {
+const LinkButton = ({ title, site, text, icon }: LinkProps) => {
+  const ariaLabel = `${
+    site.includes("github") ? "Github repository" : "Application"
+  } link for ${title}`;
+
   return (
     <a
       href={site}
       target="_blank"
       rel="noopener"
       className="flex max-w-min items-center justify-between gap-5 rounded-lg border border-purple-600 p-2 text-sm font-semibold text-purple-600 duration-300 hover:bg-purple-300/50 dark:border-purple-300 dark:text-purple-300 dark:hover:bg-purple-300/20 md:mr-3 md:p-3"
+      aria-label={ariaLabel}
     >
       {text} {icon}
     </a>
@@ -55,8 +61,20 @@ const Project: React.FC<ProjectProps> = ({
         <h3 className="text-3xl font-extrabold">{title}</h3>
         <p className="mb-5 mt-2 whitespace-pre-line">{desc}</p>
         <div className="flex gap-3">
-          <LinkButton site={github} text="Github" icon={<BsGithub />} />
-          {site && <LinkButton site={site} text="App" icon={<BsLink />} />}
+          <LinkButton
+            title={title}
+            site={github}
+            text="Github"
+            icon={<BsGithub />}
+          />
+          {site && (
+            <LinkButton
+              title={title}
+              site={site}
+              text="App"
+              icon={<BsLink />}
+            />
+          )}
         </div>
       </li>
     </ul>
