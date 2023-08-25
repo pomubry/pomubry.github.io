@@ -116,8 +116,13 @@ const ContactForm = () => {
               />
             }
           />
-
-          {!!userEmailError && <FormMessage>{userEmailError}</FormMessage>}
+          <Form.Message
+            match={"typeMismatch"}
+            forceMatch={!!userEmailError}
+            className={`text-red text-sm`}
+          >
+            {userEmailError || "Please enter a valid email"}
+          </Form.Message>
         </FormField>
 
         <FormField name="message" serverInvalid={!!messageError}>

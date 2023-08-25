@@ -1,11 +1,6 @@
 import * as Form from "@radix-ui/react-form";
 import type { IconType } from "react-icons";
 
-const dataInvalid = "data-[invalid=true]:";
-
-const invalidDataText = (attribute: string = "") =>
-  `${attribute}text-red-500 dark:${attribute}text-red-300`;
-
 const FormField = ({
   children,
   serverInvalid,
@@ -17,7 +12,7 @@ const FormField = ({
 }) => (
   <Form.Field
     name={name}
-    className={`${invalidDataText(dataInvalid)} group grid gap-3`}
+    className={`group grid gap-3`}
     serverInvalid={serverInvalid}
   >
     {children}
@@ -25,15 +20,11 @@ const FormField = ({
 );
 
 const FormLabel = ({ children }: { children: React.ReactNode }) => (
-  <Form.Label className={`font-semibold ${invalidDataText(dataInvalid)}`}>
-    {children}
-  </Form.Label>
+  <Form.Label className={`font-semibold`}>{children}</Form.Label>
 );
 
 const FormMessage = ({ children }: { children: React.ReactNode }) => (
-  <Form.Message className={`${invalidDataText()} text-sm`}>
-    {children}
-  </Form.Message>
+  <Form.Message className={`text-red text-sm`}>{children}</Form.Message>
 );
 
 const FormGroup = ({
@@ -45,7 +36,7 @@ const FormGroup = ({
 }) => {
   return (
     <div
-      className={`flex items-center gap-3 rounded-lg border border-purple-600 p-3 group-data-[invalid=true]:border-red-500 dark:border-purple-300`}
+      className={`flex items-center gap-3 rounded-lg border border-purple-600 p-3 group-data-[invalid=true]:border-red-600 dark:border-purple-300 group-data-[invalid=true]:dark:border-red-300`}
     >
       <span>
         <Icon className="text-purple pointer-events-none" />
