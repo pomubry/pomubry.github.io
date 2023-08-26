@@ -22,7 +22,6 @@ const ContactForm = () => {
   });
 
   const onSubmit = handleSubmit(async (formData) => {
-    console.log("submitting", formData);
     setIsLoading(true);
 
     try {
@@ -48,7 +47,6 @@ const ContactForm = () => {
       }
 
       const { apiDescription, ...toastData } = mailRes.data;
-      console.log(apiDescription);
       setToast(toastData);
     } catch (e) {
       console.error(e);

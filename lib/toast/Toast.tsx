@@ -6,7 +6,6 @@ import styles from "./Toast.module.css";
 
 interface PropType {
   toastProps: ToastProps | null;
-  // eslint-disable-next-line no-unused-vars
   setToast: (props: ToastProps | null) => void;
 }
 
