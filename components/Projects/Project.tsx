@@ -1,5 +1,6 @@
 import { BsGithub, BsLink } from "react-icons/bs";
 import type { IconType } from "react-icons";
+import Image from "next/image";
 
 interface ProjectProps {
   title: string;
@@ -41,13 +42,11 @@ const Project = ({ title, img, desc, github, site, index }: ProjectProps) => {
     <li className="bg-card my-10 grid grid-cols-1 items-center gap-5 rounded-lg p-8 shadow-xl md:grid-cols-2">
       {/* Image */}
       <div
-        className={`order-1 overflow-hidden rounded-lg ${
+        className={`relative order-1 aspect-video overflow-hidden rounded-lg ${
           isEven ? "md:order-1" : "md:order-2"
         }`}
       >
-        <picture>
-          <img src={img} alt={title} className="object-cover" />
-        </picture>
+        <Image src={img} alt={title} fill />
       </div>
 
       {/* Description */}
