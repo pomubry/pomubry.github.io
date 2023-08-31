@@ -68,6 +68,8 @@ const BurgerMenu = () => {
             <NavigationMenu.Trigger
               className={`block rounded-lg p-3 font-bold duration-300 ease-linear data-[state=open]:bg-gray-100/50 dark:data-[state=open]:bg-gray-900/50 sm:hidden`}
               aria-label="Toggle navigation menu"
+              onPointerMove={(event) => event.preventDefault()}
+              onPointerLeave={(event) => event.preventDefault()}
             >
               <MdMenu
                 className={`${styles.BurgerMenu} text-purple`}
@@ -75,6 +77,9 @@ const BurgerMenu = () => {
               />
             </NavigationMenu.Trigger>
             <NavigationMenu.Content
+              disableOutsidePointerEvents
+              onPointerEnter={(event) => event.preventDefault()}
+              onPointerLeave={(event) => event.preventDefault()}
               className={`${styles.NavigationMenuContent} bg-card`}
             >
               <ul className="p-3">
